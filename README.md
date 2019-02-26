@@ -9,15 +9,22 @@ This program uses Python 2.7 and its standard libraries to break SHA1 hashes in 
 * Make sure that the password file **"10-million-password-list-top-1000000.txt"** is in the same directory as homework2.py
 
 ### How to run this program
+Non graduate assignments a)-c)
 ```sh
 $ python homework2.py -hash <hash value> -salt <optional salt value>
 ```
+Graduate assignment d)
+```sh
+$ python homework2.py -ghash <hash value>
+```
+
 # Solutions
-| Problem | Time to Break    | # of Tries | Clear Text Password | Program arguments |
-|---------|------------------|------------|---------------------|-------------------|
-| a)      | 0:00:00.001000   | 16         | letmein             | python homework2.py -hash b7a875fc1ea228b9061041b7cec4bd3c52ab3ce3|
-| b)      | 0:00:01.413000   | 999,968    | vjhtrhsvdctcegth    | python homework2.py -hash 801cdea58224c921c21fd2b183ff28ffa910ce31|
-| c)      | 0:00:00.822000   | 546,372    | harib               | python homework2.py -hash ece4bb07f2580ed8b39aa52b7f7f918e43033ea1 -salt f0744d60dd500c92c0d37c16174cc58d3c4bdd8e|
+| Problem | Time to Break    | # of Tries      | Clear Text Password  | Program arguments |
+|---------|------------------|-----------------|----------------------|-------------------|
+| a)      |  0:00:00.001000  | 16              | letmein              | python homework2.py -hash b7a875fc1ea228b9061041b7cec4bd3c52ab3ce3|
+| b)      |  0:00:01.413000  | 999,968         | vjhtrhsvdctcegth     | python homework2.py -hash 801cdea58224c921c21fd2b183ff28ffa910ce31|
+| c)      |  0:00:00.822000  | 546,372         | harib                | python homework2.py -hash ece4bb07f2580ed8b39aa52b7f7f918e43033ea1 -salt f0744d60dd500c92c0d37c16174cc58d3c4bdd8e|
+| d)      | 80:43:16.771000  | 642,696,184,624 | Alligator1 YpeKawOqO | python homework2.py -ghash 34302959e138917ce9339c0b30ec50e650ce6b40|
 
 
 

@@ -8,17 +8,21 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-hash", help="hash value")
     parser.add_argument("-salt", help="salt value")
+    parser.add_argument("-ghash", help="graduate student hash value")
     
     args = parser.parse_args()
 
-    if args.hash is None:
+    if args.hash is None and args.ghash is None:
         print parser.print_help()
         return
 
     print "Runninig password search. Please wait..."
     startTime = datetime.now()
     
-    match, tries = findPassword(args.hash, args.salt)
+    if args.ghash is not None:
+        match, tries = findGradPassword(args.ghash)
+    else:
+        match, tries = findPassword(args.hash, args.salt)
 
     elapsedTime = datetime.now() - startTime
     print "-------------------------------------------------------"
@@ -47,6 +51,20 @@ def findPassword(passwordHash, saltHash):
             triesTotal += tries
     
     return match, triesTotal
+
+def findGradPassword(passwordHash):
+    match = None
+    tries = 0
+    for word1 in passwords:
+        tries += 1
+        for word2 in passwords:
+            tries += 1
+            password = word1 + " " + word2
+            hashedPassword = hashlib.sha1(password).hexdigest()
+            if passwordHash == hashedPassword:
+                return password, tries
+            
+    return match, tries
 
 def getHashMatch(hashValue, saltValue):
     match = None
