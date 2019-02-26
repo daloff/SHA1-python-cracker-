@@ -1,3 +1,4 @@
+# Daryna Aloff 
 # CSC 4980/6980 | Blockchain & Applications | Assignment 2
 ### Description
 This program uses Python 2.7 and its standard libraries to break SHA1 hashes in a brute force manner
